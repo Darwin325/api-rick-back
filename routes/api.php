@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('favorites', \App\Http\Controllers\FavoriteController::class)->only([
     'index', 'store', 'destroy'
 ]);
+
+Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
