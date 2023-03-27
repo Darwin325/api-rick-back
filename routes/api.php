@@ -23,3 +23,4 @@ Route::resource('favorites', \App\Http\Controllers\FavoriteController::class)->o
 ]);
 
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
+Route::get('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
