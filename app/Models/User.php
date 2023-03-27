@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'birthdate',
+        'city',
+        'social_account',
     ];
 
     /**
@@ -41,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setSocialAccountAttribute($value)
+    {
+        $this->attributes['social_account'] = json_encode($value);
+    }
 }
