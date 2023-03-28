@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('address');
-            $table->date('birthdate');
-            $table->string('city');
+            $table->string('address')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->string('city')->nullable();
 
             $table->json('social_account')->nullable()->comment('Social account data');
 
