@@ -49,4 +49,14 @@ class AuthController extends Controller
             return $this->errorResponse('An error occurred while logging in', 500);
         }
     }
+
+    public function logout(): \Illuminate\Http\JsonResponse
+    {
+        try {
+            auth()->user()->tokens()->delete();
+            return $this->successResponse(['message' => 'Logged out'], 200);
+        } catch (\Exception $e) {
+            return $this->errorResponse('An error occurred while logging out', 500);
+        }
+    }
 }

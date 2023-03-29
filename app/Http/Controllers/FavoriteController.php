@@ -12,11 +12,6 @@ class FavoriteController extends Controller
 {
     use ApiResponser;
 
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
-
     public function index()
     {
         return $this->successResponse(['data' => Favorite::all()]);
