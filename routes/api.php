@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         'index', 'store', 'destroy'
     ]);
 
+    Route::get('favorites/user', [\App\Http\Controllers\FavoriteController::class, 'getFavoritesByUser']);
     Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 });
 

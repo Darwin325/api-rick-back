@@ -46,4 +46,14 @@ class FavoriteController extends Controller
             return $this->errorResponse('An error occurred while deleting the favorite', 500);
         }
     }
+
+    public function getFavoritesByUser()
+    {
+        try {
+            $favorites = Favorite::query()->where('user_id', auth()->user()->id)->get();
+            return $this->successResponse(['data' => $favorites], 200);
+        } catch (\Exception $e) {
+            return $this->errorResponse('An error occurred while deleting the favorite', 500);
+        }
+    }
 }
