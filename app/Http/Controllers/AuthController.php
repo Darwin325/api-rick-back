@@ -37,6 +37,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        $validatedData = Validator::make($request->all(), [
+            'email' => 'email|required',
+            'password' => 'required|string'
+        ]);
+
+        if ($validatedData->fails()) {
+            return $this->errorResponse($validatedData->errors(), 422);
+        }
         try {
             if (!auth()->attempt($request->only('email', 'password'))) {
                 return $this->errorResponse('Invalid credentials', 401);
